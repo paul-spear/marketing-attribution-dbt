@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: MARKETING_ATTRIBUTION
+    schema: raw_data
+    tables:
+      - name: customers
+        description: "Customer conversion data with first order information"
+        columns:
+          - name: customer_id
+            description: "Unique customer identifier"
+            tests:
+              - unique
+              - not_null
+          - name: first_order_date
+            description: "Date of customer's first order (conversion)"
+          - name: first_order_value
+            description: "Revenue value of first order"
+            
+      - name: sessions
+        description: "Website sessions with UTM attribution data"
+        columns:
+          - name: session_id
+            description: "Unique session identifier"
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            description: "Customer who created this session"
+          - name: started_at
+            description: "Session start timestamp"
+            
+      - name: ad_spend
+        description: "Daily advertising spend by campaign"
+        columns:
+          - name: date_day
+            description: "Date of ad spend"
+          - name: utm_source
+            description: "Traffic source (google, facebook, etc)"
+          - name: spend
+            description: "Amount spent in USD"
