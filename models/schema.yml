@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: int_sessions_before_conversion
+    description: "Sessions that occurred before customer conversion, within the attribution window"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+      - name: session_index
+        description: "Chronological order of this session in the customer's journey (1 = first)"
+      - name: total_sessions
+        description: "Total number of sessions for this customer before conversion"
+        
+  - name: int_attribution_touches
+    description: "Attribution points and revenue allocated to each session using various models"
+    columns:
+      - name: first_touch_points
+        description: "Attribution points using first-touch model (1.0 for first session, 0.0 for others)"
+      - name: linear_points
+        description: "Attribution points using linear model (equal distribution)"
+      - name: forty_twenty_forty_points
+        description: "Attribution points using 40-20-40 model (40% first, 40% last, 20% middle)"
+        
+  - name: mart_attribution_summary
+    description: "Summary of marketing attribution performance by month and campaign"
+    columns:
+      - name: linear_conversions
+        description: "Number of conversions attributed using linear model"
+      - name: cost_per_acquisition_linear
+        description: "Cost to acquire one customer using linear attribution"
+      - name: return_on_ad_spend_linear
+        description: "Revenue generated per dollar spent using linear attribution"
