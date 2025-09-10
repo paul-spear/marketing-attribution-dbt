@@ -30,3 +30,8 @@ models:
         description: "Cost to acquire one customer using linear attribution"
       - name: return_on_ad_spend_linear
         description: "Revenue generated per dollar spent using linear attribution"
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "linear_conversions >= 0"
+      - dbt_utils.expression_is_true:
+          expression: "total_spend >= 0"
