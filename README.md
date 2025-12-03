@@ -281,8 +281,7 @@ graph TD
     I --> K[Marketing Reports]
 ```
 
-**Questions?** Open an issue or contact the analytics team.
+**Questions?** Open an issue
 
 ---
 
-*Built with ❤️ using dbt Cloud and Snowflake*
